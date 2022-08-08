@@ -1,29 +1,42 @@
-package com.simplize.springboot.services;
+package com.simplize.springboot.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.simplize.springboot.converters.impl.StudentConverter;
+import com.simplize.springboot.dtos.StudentDTO;
 import com.simplize.springboot.entities.Student;
 import com.simplize.springboot.repositoies.StudentRepository;
+import com.simplize.springboot.services.IStudentService;
 
 @Service
-public class StudentService {
+public class StudentService implements IStudentService {
 
     private final StudentRepository studentRepository;
 
+    private final StudentConverter studentConverter;
+
     @Autowired
-    public StudentService(StudentRepository studentRepository) {
+    public StudentService(StudentRepository studentRepository, StudentConverter studentConverter) {
         this.studentRepository = studentRepository;
+        this.studentConverter = studentConverter;
     }
     
-    public List<Student> getStudents() {
-        return studentRepository.findAll();
+    public List<StudentDTO> getStudents() {
+        List<StudentDTO> dtos = new ArrayList<>();
+        List<Student> entities = studentRepository.findAll();
+        for (Student entity: entities) {
+			StudentDTO dto = studentConverter.toDTO(entity);
+			dtos.add(dto);
+		}
+        return dtos;
     }
 
-    public Student getStudentById(Long id) {
+    public StudentDTO getStudentById(Long id) {
         boolean isExisted = studentRepository.existsById(id);
 
         if(!isExisted) {
@@ -32,11 +45,12 @@ public class StudentService {
 
         Optional<Student> studentOptional = studentRepository.findById(id);
         Student studentWithId = studentOptional.get();
+        StudentDTO dto = studentConverter.toDTO(studentWithId);
 
-        return studentWithId;
+        return dto;
     }
 
-    public Student updateStudent(Long id, Student student) {
+    public StudentDTO updateStudent(Long id, Student student) {
         boolean isExisted = studentRepository.existsById(id);
 
         if(!isExisted) {
@@ -59,27 +73,36 @@ public class StudentService {
             studentWithId.setEmail(student.getEmail());
         }
 
-        return studentRepository.save(studentWithId);
+        StudentDTO dto = studentConverter.toDTO(studentWithId);
+
+        return dto;
     }
 
-    public Student addStudent(Student student) {
+    public StudentDTO addStudent(Student student) {
         Optional<Student> studentOptional = studentRepository.findStudentByEmail(student.getEmail());
 
         if (studentOptional.isPresent()) {
             throw new IllegalStateException("Email has been taken!");
         }
+        Student entity = studentRepository.save(student);
+        StudentDTO dto = studentConverter.toDTO(entity);
 
-        return studentRepository.save(student);
+        return dto;
     }
 
-    public Student deleteStudent(Long id) {
+    public StudentDTO deleteStudent(Long id) {
         boolean isExisted = studentRepository.existsById(id);
         if (!isExisted) {
             throw new IllegalStateException("Student with id " + id + " does not exists");
         };
         Optional<Student> studentOptional = studentRepository.findById(id);
         Student studentWithId = studentOptional.get();
+        StudentDTO dto = studentConverter.toDTO(studentWithId);
         studentRepository.deleteById(id);
-        return studentWithId;
+        return dto;
+    }
+
+    public Long totalStudent() {
+        return studentRepository.count();
     }
 }
