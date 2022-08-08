@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.simplize.springboot.dtos.StudentDTO;
 import com.simplize.springboot.entities.Student;
-import com.simplize.springboot.services.StudentService;
+import com.simplize.springboot.services.impl.StudentService;
 
 @RestController
 @RequestMapping(path = "api/v1/student")
@@ -27,22 +28,22 @@ public class StudentController {
     }
     
     @GetMapping
-    public List<Student> getStudents() {
+    public List<StudentDTO> getStudents() {
         return studentService.getStudents();
     }
 
     @GetMapping(path = "{id}")
-    public Student getStudents(@PathVariable("id") Long id) {
+    public StudentDTO getStudentById(@PathVariable("id") Long id) {
         return studentService.getStudentById(id);
     }
 
     @PostMapping
-    public Student addStudent(@RequestBody Student student) {
+    public StudentDTO addStudent(@RequestBody Student student) {
         return studentService.addStudent(student);
     }
 
     @PutMapping(path = "{id}")
-    public Student updateStudent(
+    public StudentDTO updateStudent(
             @PathVariable("id") Long id,
             @RequestBody Student student
         ) {
@@ -50,7 +51,7 @@ public class StudentController {
     }
 
     @DeleteMapping(path = "{id}")
-    public Student deleteStudent(@PathVariable("id") Long id) {
+    public StudentDTO deleteStudent(@PathVariable("id") Long id) {
         return studentService.deleteStudent(id);
     }
 }
