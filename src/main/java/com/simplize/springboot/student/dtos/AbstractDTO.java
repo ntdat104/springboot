@@ -1,4 +1,4 @@
-package com.simplize.springboot.dtos;
+package com.simplize.springboot.student.dtos;
 
 import java.util.ArrayList;
 import java.util.Date;

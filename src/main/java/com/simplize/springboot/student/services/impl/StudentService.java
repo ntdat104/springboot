@@ -1,4 +1,4 @@
-package com.simplize.springboot.services.impl;
+package com.simplize.springboot.student.services.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,11 +7,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.simplize.springboot.converters.impl.StudentConverter;
-import com.simplize.springboot.dtos.StudentDTO;
-import com.simplize.springboot.entities.Student;
-import com.simplize.springboot.repositoies.StudentRepository;
-import com.simplize.springboot.services.IStudentService;
+import com.simplize.springboot.student.converters.impl.StudentConverter;
+import com.simplize.springboot.student.dtos.StudentDTO;
+import com.simplize.springboot.student.entities.Student;
+import com.simplize.springboot.student.repositoies.StudentRepository;
+import com.simplize.springboot.student.services.IStudentService;
 
 @Service
 public class StudentService implements IStudentService {
