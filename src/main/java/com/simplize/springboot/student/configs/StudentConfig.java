@@ -1,4 +1,4 @@
-package com.simplize.springboot.configs;
+package com.simplize.springboot.student.configs;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -8,8 +8,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.simplize.springboot.entities.Student;
-import com.simplize.springboot.repositoies.StudentRepository;
+import com.simplize.springboot.student.entities.Student;
+import com.simplize.springboot.student.repositoies.StudentRepository;
 
 @Configuration
 public class StudentConfig {

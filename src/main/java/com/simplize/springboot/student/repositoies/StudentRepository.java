@@ -1,11 +1,11 @@
-package com.simplize.springboot.repositoies;
+package com.simplize.springboot.student.repositoies;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.simplize.springboot.entities.Student;
+import com.simplize.springboot.student.entities.Student;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {

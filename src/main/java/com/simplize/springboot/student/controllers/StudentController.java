@@ -1,4 +1,4 @@
-package com.simplize.springboot.controllers;
+package com.simplize.springboot.student.controllers;
 
 import java.util.List;
 
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.simplize.springboot.dtos.StudentDTO;
-import com.simplize.springboot.entities.Student;
-import com.simplize.springboot.services.impl.StudentService;
+import com.simplize.springboot.student.dtos.StudentDTO;
+import com.simplize.springboot.student.entities.Student;
+import com.simplize.springboot.student.services.impl.StudentService;
 
 @RestController
 @RequestMapping(path = "api/v1/student")

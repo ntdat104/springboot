@@ -1,10 +1,10 @@
-package com.simplize.springboot.converters.impl;
+package com.simplize.springboot.student.converters.impl;
 
 import org.springframework.stereotype.Component;
 
-import com.simplize.springboot.converters.IStudentConverter;
-import com.simplize.springboot.dtos.StudentDTO;
-import com.simplize.springboot.entities.Student;
+import com.simplize.springboot.student.converters.IStudentConverter;
+import com.simplize.springboot.student.dtos.StudentDTO;
+import com.simplize.springboot.student.entities.Student;
 
 @Component
 public class StudentConverter implements IStudentConverter {

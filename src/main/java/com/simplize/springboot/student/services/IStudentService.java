@@ -1,9 +1,9 @@
-package com.simplize.springboot.services;
+package com.simplize.springboot.student.services;
 
 import java.util.List;
 
-import com.simplize.springboot.dtos.StudentDTO;
-import com.simplize.springboot.entities.Student;
+import com.simplize.springboot.student.dtos.StudentDTO;
+import com.simplize.springboot.student.entities.Student;
 
 public interface IStudentService {
     List<StudentDTO> getStudents();

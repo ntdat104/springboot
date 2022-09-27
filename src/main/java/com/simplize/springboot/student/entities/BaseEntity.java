@@ -1,4 +1,4 @@
-package com.simplize.springboot.entities;
+package com.simplize.springboot.student.entities;
 
 import javax.persistence.*;
 import java.util.Date;
