@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 
 import com.simplize.springboot.student.entities.Student;
 import com.simplize.springboot.student.repositoies.StudentRepository;
-
 @Configuration
 public class StudentConfig {
     
