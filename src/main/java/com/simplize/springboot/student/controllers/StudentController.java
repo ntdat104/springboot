@@ -17,7 +17,7 @@ import com.simplize.springboot.student.entities.Student;
 import com.simplize.springboot.student.services.impl.StudentService;
 
 @RestController
-@RequestMapping(path = "api/v1/student")
+@RequestMapping(path = "api/v1/students")
 public class StudentController {
 
     private final StudentService studentService;
