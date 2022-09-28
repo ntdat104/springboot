@@ -1,4 +1,4 @@
-package com.simplize.springboot.consumingrest;
+package com.simplize.springboot.consume;
 
 public class Response {
     private int code;

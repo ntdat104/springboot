@@ -1,4 +1,4 @@
-package com.simplize.springboot.consumingrest;
+package com.simplize.springboot.consume;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
