@@ -26,4 +26,12 @@ public class ConsumeService implements IConsumeService {
             new ResponseObject("ok", "get posts success", result)
         );
     }
+
+    public ResponseEntity<ResponseObject> getPostById(Long id) {
+        Object result = restTemplate.getForObject("https://jsonplaceholder.typicode.com/posts/" + id, Object.class);
+        
+        return ResponseEntity.status(HttpStatus.OK).body(
+            new ResponseObject("ok", "get getPostById success", result)
+        );
+    }
 }
