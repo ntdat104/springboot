@@ -19,15 +19,17 @@ import com.simplize.springboot.modules.student.services.IStudentService;
 @Service
 public class StudentService implements IStudentService {
 
-    private final StudentRepository studentRepository;
-
-    private final StudentConverter studentConverter;
+    @Autowired
+    private StudentRepository studentRepository;
 
     @Autowired
-    public StudentService(StudentRepository studentRepository, StudentConverter studentConverter) {
-        this.studentRepository = studentRepository;
-        this.studentConverter = studentConverter;
-    }
+    private StudentConverter studentConverter;
+
+    // @Autowired
+    // public StudentService(StudentRepository studentRepository, StudentConverter studentConverter) {
+    //     this.studentRepository = studentRepository;
+    //     this.studentConverter = studentConverter;
+    // }
     
     public ResponseEntity<ResponseObject> getStudents() {
         List<StudentDTO> dtos = new ArrayList<>();
@@ -80,7 +82,9 @@ public class StudentService implements IStudentService {
             studentWithId.setEmail(student.getEmail());
         }
 
-        StudentDTO dto = studentConverter.toDTO(studentWithId);
+        Student entity = studentRepository.save(studentWithId);
+
+        StudentDTO dto = studentConverter.toDTO(entity);
 
         return ResponseEntity.status(HttpStatus.OK).body(
             new ResponseObject("ok", "updateStudent successfully", dto)

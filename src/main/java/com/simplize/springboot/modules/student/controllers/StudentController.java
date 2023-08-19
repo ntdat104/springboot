@@ -16,15 +16,15 @@ import com.simplize.springboot.modules.student.entities.Student;
 import com.simplize.springboot.modules.student.services.impl.StudentService;
 
 @RestController
-@RequestMapping(path = "api/v1/students")
+@RequestMapping(path = "api/v1/student")
 public class StudentController {
-
-    private final StudentService studentService;
-
     @Autowired
-    public StudentController(StudentService studentService) {
-        this.studentService = studentService;
-    }
+    private StudentService studentService;
+
+    // @Autowired
+    // public StudentController(StudentService studentService) {
+    //     this.studentService = studentService;
+    // }
     
     @GetMapping
     public ResponseEntity<ResponseObject> getStudents() {

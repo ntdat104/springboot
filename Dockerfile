@@ -1,5 +1,5 @@
-FROM openjdk:12.0.2
+FROM eclipse-temurin:17-jdk-alpine
 VOLUME /tmp
-ADD /target/springboot-0.0.1-SNAPSHOT app.jar
-EXPOSE 8080
-ENTRYPOINT ["java","-jar","/app.jar"]
+ADD /target/springboot-0.0.1-SNAPSHOT.jar app.jar
+EXPOSE 8888
+ENTRYPOINT ["java","-jar","app.jar"]
