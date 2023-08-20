@@ -20,8 +20,8 @@ public class StudentConfig {
 
            studentRepository.saveAll(
             List.of(
-                new Student("Nguyễn Tiến Đạt", "dat.nt@gmail.com", LocalDate.of(2000, Month.APRIL, 10)),
-                new Student("Nguyễn Thị Hoàn", "hoan.nt@gmail.com", LocalDate.of(2003, Month.JULY, 30)))
+                new Student("Nguyễn Tiến Đạt", 23,"dat.nt@gmail.com", LocalDate.of(2000, Month.APRIL, 10)),
+                new Student("Nguyễn Thị Hoàn", 20,"hoan.nt@gmail.com", LocalDate.of(2003, Month.JULY, 30)))
            );
         };
     }
